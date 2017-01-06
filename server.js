@@ -24,7 +24,7 @@ var server = http.createServer(function(req, res) {
   // Show an about page which displays a short
   // biography of that person
   else if (method === 'GET' && url === '/about') {
-    fs.readFile('./bio.html', 'utf-8', function (err, data) {
+    fs.readFile('./about.html', 'utf-8', function (err, data) {
       if (err) throw err;
       res.statusCode = 200;
       res.setHeader('Content-Type', 'text/html');
@@ -34,8 +34,8 @@ var server = http.createServer(function(req, res) {
   }
   // When a user visits '/films/[name-of-film]'
   // Show a description of that film and the post
-  else if (method === 'GET', && url === '') {
-    fs.readFile('./', 'utf-8', function (err, data) {
+  else if (method === 'GET' && url === '/films') {
+    fs.readFile('./films.html', 'utf-8', function (err, data) {
       if (err) throw err;
       res.statusCode = 200;
       res.setHeader('Content-Type', 'text/html');
