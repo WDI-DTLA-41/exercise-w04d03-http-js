@@ -25,44 +25,44 @@ var routes = [
   }
 ];
 
-fs.readFile(routes[0].file, 'utf8', (err, data) => {
-  if (err) throw err;
-  routes[0].content = data;
-})
+// fs.readFile(routes[0].file, 'utf8', (err, data) => {
+//   if (err) throw err;
+//   routes[0].content = data;
+// })
 
-fs.readFile(routes[1].file, 'utf8', (err, data) => {
-  if (err) throw err;
-  routes[1].content = data;
-})
+// fs.readFile(routes[1].file, 'utf8', (err, data) => {
+//   if (err) throw err;
+//   routes[1].content = data;
+// })
 
-fs.readFile(routes[2].file, 'utf8', (err, data) => {
-  if (err) throw err;
-  routes[2].content = data;
-})
+// fs.readFile(routes[2].file, 'utf8', (err, data) => {
+//   if (err) throw err;
+//   routes[2].content = data;
+// })
 
-var server = http.createServer(function(req, res) {
-  var method = req.method,
-      url = req.url;
-  console.log('Incoming ', req.method, ' request to ', req.url);
-  var action = routes.find(function(route) {
-    return route.method === method && route.path === url;
-  });
-  if ( action ) {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    res.write( action.content );
-  }
-  else {
-    res.statusCode = 404;
-    res.setHeader('Content-Type', 'text/html');
-    res.write('uhoh');
-  }
-  res.end();
-});
+// var server = http.createServer(function(req, res) {
+//   var method = req.method,
+//       url = req.url;
+//   console.log('Incoming ', req.method, ' request to ', req.url);
+//   var action = routes.find(function(route) {
+//     return route.method === method && route.path === url;
+//   });
+//   if ( action ) {
+//     res.statusCode = 200;
+//     res.setHeader('Content-Type', 'text/html');
+//     res.write( action.content );
+//   }
+//   else {
+//     res.statusCode = 404;
+//     res.setHeader('Content-Type', 'text/html');
+//     res.write('uhoh');
+//   }
+//   res.end();
+// });
 
-server.listen(port, hostname, function() {
-  console.log('Server running at http://' + hostname + ':' + port);
-});
+// server.listen(port, hostname, function() {
+//   console.log('Server running at http://' + hostname + ':' + port);
+// });
 
 //dynamically call the file based on requested url
 
